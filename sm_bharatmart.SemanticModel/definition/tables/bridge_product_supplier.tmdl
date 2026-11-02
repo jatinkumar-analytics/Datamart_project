@@ -2,20 +2,6 @@ table bridge_product_supplier
 	lineageTag: c65c2242-a8e1-4a73-9b31-2ccf3be9fac4
 	sourceLineageTag: [supply].[bridge_product_supplier]
 
-	measure 'Total Revenue' = SUM ( fact_sales[net_amount] )
-		lineageTag: 70f2eeb6-8067-4510-8ab7-ba0535c95ef0
-
-		changedProperty = Name
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Total Refund' = SUM ( fact_returns[refund_amount] )
-		lineageTag: 38e487cc-6f5c-4198-8bdf-a39b473eafe8
-
-		changedProperty = Name
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column product_key
 		dataType: int64
 		formatString: 0

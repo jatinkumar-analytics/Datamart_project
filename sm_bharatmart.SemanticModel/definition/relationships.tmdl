@@ -86,10 +86,6 @@ relationship 81e88c2a-f6b2-899d-0bb9-962744fc2477
 	fromColumn: fact_inventory_snapshot.warehouse_key
 	toColumn: dim_warehouse.warehouse_key
 
-relationship 8bebfd5a-24b0-0022-427c-2a20e100901f
-	fromColumn: fact_order_fulfillment.order_key
-	toColumn: dim_date.date_key
-
 relationship 0fa89ceb-45e3-e344-4fc9-bdb35d29e15c
 	fromColumn: fact_order_fulfillment.customer_key
 	toColumn: dim_customer.customer_key
@@ -187,4 +183,36 @@ relationship 3a6163f3-5078-0fab-622d-459e838fca5f
 relationship e09dbb6d-a0b4-ad19-087f-8cdfc89f94ed
 	fromColumn: fact_shipment.ship_date_key
 	toColumn: dim_date.date_key
+
+relationship 86809061-50ab-6337-71ad-e8558baa653f
+	fromColumn: fact_order_fulfillment.order_date_key
+	toColumn: dim_date.date_key
+
+relationship 2015b216-7911-398b-6151-87cd9888a0db
+	fromColumn: fact_shipment.warehouse_key
+	toColumn: dim_warehouse.warehouse_key
+
+relationship 2b6c51f7-261c-98d4-2847-bfefcaf6118f
+	fromColumn: fact_shipment.product_key
+	toColumn: dim_product.product_key
+
+relationship 4c655d98-236d-8900-e19d-0166827063f9
+	fromColumn: fact_shipment.supplier_key
+	toColumn: dim_supplier.supplier_key
+
+relationship d06610c8-fc6b-b122-0274-3cbe918975c2
+	fromColumn: fact_shipment.store_key
+	toColumn: dim_store.store_key
+
+relationship cbfee061-6dd2-a970-03de-93aea732c2a4
+	fromColumn: fact_shipment.carrier_key
+	toColumn: dim_carrier.carrier_key
+
+relationship afe982c9-5c7c-f837-4a8e-e1eb52497341
+	fromColumn: fact_shipment.geography_key
+	toColumn: dim_geography.geography_key
+
+relationship 8ff5968f-5bcb-5710-22fa-6853ad5b03ab
+	fromColumn: fact_sales.promotion_key
+	toColumn: dim_promotion.promotion_key
 

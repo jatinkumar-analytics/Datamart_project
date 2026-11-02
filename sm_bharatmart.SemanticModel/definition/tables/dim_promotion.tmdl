@@ -63,7 +63,7 @@ table dim_promotion
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: d6c3bd34-7b83-4e68-be77-149ae1cafe47
 		sourceLineageTag: discount_value
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: discount_value
 
 		changedProperty = IsHidden

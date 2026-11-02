@@ -66,7 +66,7 @@ table fact_shipment
 		formatString: 0
 		lineageTag: 3349eb32-6f23-4bc5-814f-8b9e282c47c8
 		sourceLineageTag: product_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: product_key
 
 		annotation SummarizationSetBy = Automatic
@@ -76,7 +76,7 @@ table fact_shipment
 		formatString: 0
 		lineageTag: 9548adfe-032b-4ac2-a259-c5fac3c8bc7f
 		sourceLineageTag: supplier_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: supplier_key
 
 		annotation SummarizationSetBy = Automatic
@@ -86,7 +86,7 @@ table fact_shipment
 		formatString: 0
 		lineageTag: 6f8615df-8aa9-4b12-84b4-573820601c79
 		sourceLineageTag: warehouse_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: warehouse_key
 
 		annotation SummarizationSetBy = Automatic
@@ -96,7 +96,7 @@ table fact_shipment
 		formatString: 0
 		lineageTag: 3e346228-2316-4778-92b6-52c8fc21ec82
 		sourceLineageTag: store_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: store_key
 
 		annotation SummarizationSetBy = Automatic
@@ -106,7 +106,7 @@ table fact_shipment
 		formatString: 0
 		lineageTag: 8fd8d45b-f1a9-414c-bdb3-3f366d8ef112
 		sourceLineageTag: carrier_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: carrier_key
 
 		annotation SummarizationSetBy = Automatic
@@ -116,7 +116,7 @@ table fact_shipment
 		formatString: 0
 		lineageTag: 4eb0ffa1-c180-4b62-949b-d3d591faeadd
 		sourceLineageTag: geography_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: geography_key
 
 		annotation SummarizationSetBy = Automatic

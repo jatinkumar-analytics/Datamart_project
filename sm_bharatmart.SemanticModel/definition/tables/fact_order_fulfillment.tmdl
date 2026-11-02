@@ -7,7 +7,7 @@ table fact_order_fulfillment
 		formatString: 0
 		lineageTag: b4e6be6e-a059-40e9-a7aa-c018470c069e
 		sourceLineageTag: order_key
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: order_key
 
 		annotation SummarizationSetBy = Automatic
@@ -26,7 +26,7 @@ table fact_order_fulfillment
 		formatString: 0
 		lineageTag: 5f143c94-086a-4f90-abe7-cb09f1631385
 		sourceLineageTag: order_date_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: order_date_key
 
 		annotation SummarizationSetBy = Automatic
