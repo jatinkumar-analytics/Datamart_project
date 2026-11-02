@@ -17,7 +17,8 @@ CREATE TABLE [sales].[fact_sales] (
     [net_amount]      DECIMAL (18, 2) NOT NULL,
     [cost_amount]     DECIMAL (18, 2) NOT NULL,
     [tax_amount]      DECIMAL (18, 2) NOT NULL,
-    [margin]          DECIMAL (18, 2) NOT NULL
+    [margin]          DECIMAL (18, 2) NOT NULL,
+    [promotion_key]   BIGINT          NULL
 );
 
 
