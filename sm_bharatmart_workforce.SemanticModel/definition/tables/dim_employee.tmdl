@@ -1,0 +1,105 @@
+table dim_employee
+	lineageTag: 4767b4a6-217c-4b80-96f9-b1bd154529db
+	sourceLineageTag: [conformed].[dim_employee]
+
+	column employee_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 70e89678-aa51-42a1-bffc-04ce4cab5319
+		sourceLineageTag: employee_key
+		summarizeBy: none
+		sourceColumn: employee_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_id
+		dataType: string
+		lineageTag: ae91c6bc-c2d9-48f4-85b3-bcba90175e5b
+		sourceLineageTag: employee_id
+		summarizeBy: none
+		sourceColumn: employee_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_name
+		dataType: string
+		lineageTag: 7af021d3-2bec-43e0-b521-fc77da567f93
+		sourceLineageTag: employee_name
+		summarizeBy: none
+		sourceColumn: employee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column role_name
+		dataType: string
+		lineageTag: 55096bbd-3b2d-4df7-8aa5-9c5dd0726d4b
+		sourceLineageTag: role_name
+		summarizeBy: none
+		sourceColumn: role_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column grade
+		dataType: string
+		lineageTag: 177c890b-c839-48ac-9f43-4dac3a0f4b25
+		sourceLineageTag: grade
+		summarizeBy: none
+		sourceColumn: grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_id
+		dataType: string
+		lineageTag: 07d93644-6083-4a95-9357-2879c58be00c
+		sourceLineageTag: department_id
+		summarizeBy: none
+		sourceColumn: department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column home_store_id
+		dataType: string
+		lineageTag: 4f974097-5135-4bbf-938d-68f82b89f0ba
+		sourceLineageTag: home_store_id
+		summarizeBy: none
+		sourceColumn: home_store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 73cf5bf8-09c1-4557-9770-7b33e70c23a4
+		sourceLineageTag: start_date
+		summarizeBy: none
+		sourceColumn: start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f1b72263-e0bb-47e2-897b-ae2de9523602
+		sourceLineageTag: end_date
+		summarizeBy: none
+		sourceColumn: end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e306ff02-e8f2-47da-9b6c-5c6f92d31656
+		sourceLineageTag: is_current
+		summarizeBy: none
+		sourceColumn: is_current
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_employee = entity
+		mode: directLake
+		source
+			entityName: dim_employee
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

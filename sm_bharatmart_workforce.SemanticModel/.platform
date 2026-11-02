@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Notebook",
-    "displayName": "prepare_silver"
+    "type": "SemanticModel",
+    "displayName": "sm_bharatmart_workforce"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "3d5ad707-2ff4-a88d-4415-35029285b395"
+    "logicalId": "0191368f-83a9-9a3e-486e-016f7358b5a2"
   }
 }

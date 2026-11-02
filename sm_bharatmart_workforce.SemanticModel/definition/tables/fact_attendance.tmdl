@@ -1,0 +1,151 @@
+table fact_attendance
+	lineageTag: f370adca-15d6-484b-bb6c-d3cc956f63fd
+	sourceLineageTag: [workforce].[fact_attendance]
+
+	measure 'Worked Hours' =
+			
+			SUM ( fact_attendance[worked_hours] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2e205daa-3d2a-4cab-a7d8-e2fcf487bbec
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en"}
+
+	measure 'Attendance Utilization %' =
+			
+			DIVIDE (
+			    SUM ( fact_attendance[worked_hours] ),
+			    SUM ( fact_attendance[scheduled_hours] )
+			)
+		lineageTag: 6f8a281c-4733-48cc-98cc-4ab36c5cfd6d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Overtime Rate %' =
+			
+			DIVIDE (
+			    SUM ( fact_attendance[overtime_hours] ),
+			    [Worked Hours]
+			)
+		lineageTag: ed89d203-8fde-4eeb-9fbb-7013b77d7bb8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column attendance_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f554a7f-0c60-40a0-9b5d-28eb7dc87699
+		sourceLineageTag: attendance_key
+		summarizeBy: sum
+		sourceColumn: attendance_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f7e8dac-d000-49ce-a353-30b28dad7da4
+		sourceLineageTag: employee_key
+		summarizeBy: sum
+		sourceColumn: employee_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 388f21c9-b490-4679-a249-69f7707ca571
+		sourceLineageTag: department_key
+		summarizeBy: sum
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ebb0acdd-950e-4f25-91aa-4a9541dcc3a2
+		sourceLineageTag: store_key
+		summarizeBy: sum
+		sourceColumn: store_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column attendance_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0261b168-1d6e-46f7-abea-26d12c44beab
+		sourceLineageTag: attendance_date_key
+		summarizeBy: none
+		sourceColumn: attendance_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column scheduled_hours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 248f18a8-2b78-49a0-a98a-ecab8f194b4e
+		sourceLineageTag: scheduled_hours
+		summarizeBy: sum
+		sourceColumn: scheduled_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en"}
+
+	column worked_hours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5e95773c-a55c-40c8-a1ff-38204dbda8b2
+		sourceLineageTag: worked_hours
+		summarizeBy: sum
+		sourceColumn: worked_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en"}
+
+	column overtime_hours
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 64477a9e-8566-4e93-917a-6a0b9abfa0a7
+		sourceLineageTag: overtime_hours
+		summarizeBy: sum
+		sourceColumn: overtime_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en"}
+
+	column late_minutes
+		dataType: int64
+		formatString: 0
+		lineageTag: da3c23c5-4bd9-4d54-b731-f46f26a4b41b
+		sourceLineageTag: late_minutes
+		summarizeBy: sum
+		sourceColumn: late_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column absence_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 29429051-78ee-4600-a8f5-f5222b15254f
+		sourceLineageTag: absence_count
+		summarizeBy: sum
+		sourceColumn: absence_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_attendance = entity
+		mode: directLake
+		source
+			entityName: fact_attendance
+			schemaName: workforce
+			expressionSource: 'DirectLake - wh_bharatmart'
+

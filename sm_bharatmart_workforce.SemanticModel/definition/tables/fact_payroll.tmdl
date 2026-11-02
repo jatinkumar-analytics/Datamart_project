@@ -1,0 +1,177 @@
+table fact_payroll
+	lineageTag: 14e794b6-c727-44de-adac-c73ca8375ea6
+	sourceLineageTag: [workforce].[fact_payroll]
+
+	measure 'Gross Payroll' =
+			
+			SUM ( fact_payroll[gross_pay] )
+		lineageTag: 168ee2c5-b259-4e34-819b-88de5a24b2eb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Payroll' =
+			
+			SUM ( fact_payroll[net_pay] )
+		lineageTag: 57833476-ba98-4337-a784-8f9251464297
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Net Pay per Employee' =
+			
+			DIVIDE (
+			    [Net Payroll],
+			    DISTINCTCOUNT ( fact_payroll[employee_key] )
+			)
+		lineageTag: f9d50b82-892c-493f-aa01-e5df122e0861
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column payroll_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c2bed976-fb76-4a75-a838-488769cd6243
+		sourceLineageTag: payroll_key
+		summarizeBy: sum
+		sourceColumn: payroll_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_key
+		dataType: int64
+		formatString: 0
+		lineageTag: af9615d0-fb40-4c15-ab1b-6a27c738514c
+		sourceLineageTag: employee_key
+		summarizeBy: none
+		sourceColumn: employee_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 62163301-d064-4100-9690-a08142affec4
+		sourceLineageTag: department_key
+		summarizeBy: none
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 6883ecbf-49dc-4309-9c3d-324af28f97fb
+		sourceLineageTag: store_key
+		summarizeBy: none
+		sourceColumn: store_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column pay_period_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 855f75d1-314f-45e0-b20b-97491b92548a
+		sourceLineageTag: pay_period_date_key
+		summarizeBy: none
+		sourceColumn: pay_period_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column pay_period
+		dataType: string
+		lineageTag: d4c993e7-2693-48f7-b9ab-3c15d940ccf2
+		sourceLineageTag: pay_period
+		summarizeBy: none
+		sourceColumn: pay_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column basic_pay
+		dataType: double
+		lineageTag: a71483cb-8f1d-467d-be02-0c23f106d3cb
+		sourceLineageTag: basic_pay
+		summarizeBy: sum
+		sourceColumn: basic_pay
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column allowances
+		dataType: double
+		lineageTag: ef9f0f40-8803-4831-8c1d-6304e366d8be
+		sourceLineageTag: allowances
+		summarizeBy: sum
+		sourceColumn: allowances
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column overtime_pay
+		dataType: double
+		lineageTag: 6e07db50-9228-4d2a-8535-c3b0bb5fbba6
+		sourceLineageTag: overtime_pay
+		summarizeBy: sum
+		sourceColumn: overtime_pay
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column deductions
+		dataType: double
+		lineageTag: a1f43b67-24e7-482b-8064-b45466185e3c
+		sourceLineageTag: deductions
+		summarizeBy: sum
+		sourceColumn: deductions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tax
+		dataType: double
+		lineageTag: 5f2f3c65-3293-4583-b4cf-5cef50d18e99
+		sourceLineageTag: tax
+		summarizeBy: sum
+		sourceColumn: tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_pay
+		dataType: double
+		lineageTag: 9cc4997e-5049-40a1-8800-eb554a7e4661
+		sourceLineageTag: gross_pay
+		summarizeBy: sum
+		sourceColumn: gross_pay
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_pay
+		dataType: double
+		lineageTag: b5033e24-f9d2-4f25-9b6f-1bb4313e0d52
+		sourceLineageTag: net_pay
+		summarizeBy: sum
+		sourceColumn: net_pay
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_payroll = entity
+		mode: directLake
+		source
+			entityName: fact_payroll
+			schemaName: workforce
+			expressionSource: 'DirectLake - wh_bharatmart'
+

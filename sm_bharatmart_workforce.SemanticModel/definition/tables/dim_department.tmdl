@@ -1,0 +1,57 @@
+table dim_department
+	lineageTag: 44bb87f7-9a97-4d82-b65c-a04fbe7b4e47
+	sourceLineageTag: [conformed].[dim_department]
+
+	column department_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 903f8fc0-7cff-4e1a-ae6e-304e577db514
+		sourceLineageTag: department_key
+		summarizeBy: none
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_id
+		dataType: string
+		lineageTag: 12501684-7db0-421f-8caf-cc722273f99f
+		sourceLineageTag: department_id
+		summarizeBy: none
+		sourceColumn: department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: ece17b34-3c6b-489b-be50-997769e3ce31
+		sourceLineageTag: department_name
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column function_name
+		dataType: string
+		lineageTag: b7d110ff-a407-43fc-83ae-7fda9e7fd737
+		sourceLineageTag: function_name
+		summarizeBy: none
+		sourceColumn: function_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_centre
+		dataType: string
+		lineageTag: 3f019a83-197f-4f4c-b65c-d51d36c02a81
+		sourceLineageTag: cost_centre
+		summarizeBy: none
+		sourceColumn: cost_centre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_department = entity
+		mode: directLake
+		source
+			entityName: dim_department
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+
