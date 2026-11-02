@@ -2,6 +2,42 @@ table fact_shipment
 	lineageTag: ec8bf666-2ab1-41fc-8760-6ba7085cf8bd
 	sourceLineageTag: [supply].[fact_shipment]
 
+	measure 'Shipment Count' =
+			
+			DISTINCTCOUNT ( fact_shipment[shipment_number] )
+		formatString: 0
+		lineageTag: 01596026-4003-40cd-b3ee-c2dcec7a4fba
+
+		changedProperty = Name
+
+	measure 'Shipping Cost' =
+			
+			SUM ( fact_shipment[shipping_cost] )
+		lineageTag: a3b1708b-84f1-4cd5-9b39-de1a4c019ce1
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'On-Time Delivery %' =
+			
+			DIVIDE (
+			    CALCULATE (
+			        DISTINCTCOUNT ( fact_shipment[shipment_number] ),
+			        FILTER (
+			            fact_shipment,
+			            fact_shipment[delivery_date_key]
+			                <= fact_shipment[promised_date_key]
+			        )
+			    ),
+			    [Shipment Count]
+			)
+		lineageTag: 4b6ce3ee-bf28-448c-918a-efb76c09bc59
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column shipment_key
 		dataType: int64
 		formatString: 0

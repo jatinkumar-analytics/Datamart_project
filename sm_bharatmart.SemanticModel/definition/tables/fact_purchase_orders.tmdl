@@ -2,6 +2,36 @@ table fact_purchase_orders
 	lineageTag: 92d39633-d9ff-468b-a867-65f4546b6430
 	sourceLineageTag: [supply].[fact_purchase_orders]
 
+	measure 'Purchase Order Value' =
+			
+			SUM ( fact_purchase_orders[po_amount] )
+		lineageTag: ab0db84b-6def-40b7-8c60-16dc25dc89a5
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Outstanding Quantity' =
+			
+			SUM ( fact_purchase_orders[ordered_quantity] )
+			    - SUM ( fact_purchase_orders[received_quantity] )
+		formatString: 0
+		lineageTag: 86d32961-5290-4348-b6db-a93914546061
+
+		changedProperty = Name
+
+	measure 'Supplier Fill Rate %' =
+			
+			DIVIDE (
+			    SUM ( fact_purchase_orders[received_quantity] ),
+			    SUM ( fact_purchase_orders[ordered_quantity] )
+			)
+		lineageTag: 9705a235-5e96-4e70-a714-2cc0d8d25117
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column po_key
 		dataType: int64
 		formatString: 0

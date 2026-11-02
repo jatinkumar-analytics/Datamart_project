@@ -2,6 +2,38 @@ table fact_order_fulfillment
 	lineageTag: dc03a4da-df10-4fdc-a225-7a939d6a1c51
 	sourceLineageTag: [operations].[fact_order_fulfillment]
 
+	measure 'Fulfillment Order Count' =
+			
+			DISTINCTCOUNT ( fact_order_fulfillment[order_number] )
+		formatString: 0
+		lineageTag: e36fc692-73cd-492c-affe-d7f5b8e7b986
+
+		changedProperty = Name
+
+	measure 'Cancellation Rate %' =
+			
+			DIVIDE (
+			    CALCULATE (
+			        DISTINCTCOUNT ( fact_order_fulfillment[order_number] ),
+			        fact_order_fulfillment[is_cancelled] = TRUE ()
+			    ),
+			    [Fulfillment Order Count]
+			)
+		lineageTag: 9f764db9-39f9-43f7-b225-1a23ce49f892
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Days to Ship' =
+			
+			AVERAGE ( fact_order_fulfillment[days_to_ship] )
+		lineageTag: c588460e-f1e3-4308-87dc-fec8d028aceb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column order_key
 		dataType: int64
 		formatString: 0

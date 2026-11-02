@@ -2,6 +2,36 @@ table fact_returns
 	lineageTag: c60ac0ab-f15f-4bc6-8bbf-465e6593de6f
 	sourceLineageTag: [sales].[fact_returns]
 
+	measure 'Total Refund' =
+			
+			SUM ( fact_returns[refund_amount] )
+		lineageTag: c36693cb-5fa7-4685-a786-c5c48991811d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Period Return Unit Rate %' =
+			
+			DIVIDE (
+			    SUM ( fact_returns[quantity] ),
+			    [Units Sold]
+			)
+		lineageTag: 0e0425f1-5565-4f2f-a9de-ad3ecad48b59
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Revenue After Returns' =
+			
+			[Total Revenue] - [Total Refund]
+		lineageTag: b0843c54-613e-4c0d-b7f6-98235a21400d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column return_key
 		dataType: int64
 		formatString: 0

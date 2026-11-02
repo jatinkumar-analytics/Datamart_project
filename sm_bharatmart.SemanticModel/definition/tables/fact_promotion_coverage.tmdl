@@ -2,9 +2,31 @@ table fact_promotion_coverage
 	lineageTag: 2aee7a59-20a8-474f-984c-49aa047c631b
 	sourceLineageTag: [operations].[fact_promotion_coverage]
 
+	measure 'Promotion Eligibility Rate %' =
+			
+			DIVIDE (
+			    CALCULATE (
+			        COUNTROWS ( fact_promotion_coverage ),
+			        fact_promotion_coverage[is_eligible] = TRUE ()
+			    ),
+			    COUNTROWS ( fact_promotion_coverage )
+			)
+		lineageTag: 37099971-f8a5-47f3-a936-a4a07387f8f8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Covered Products' =
+			
+			DISTINCTCOUNT ( fact_promotion_coverage[product_key] )
+		formatString: 0
+		lineageTag: 1ef19c63-bc7c-4b0f-842b-11c8f422558c
+
+		changedProperty = Name
+
 	column coverage_date_key
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: cedc5302-012b-4fd5-abfa-169e00253c40
 		sourceLineageTag: coverage_date_key

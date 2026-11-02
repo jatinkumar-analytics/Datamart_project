@@ -2,6 +2,50 @@ table fact_inventory_snapshot
 	lineageTag: f92baaf6-2ab5-41fd-8dce-0b32e0d6c4ee
 	sourceLineageTag: [operations].[fact_inventory_snapshot]
 
+	measure 'Closing Stock' =
+			
+			VAR LatestSnapshotDate =
+			    MAX ( fact_inventory_snapshot[snapshot_date_key] )
+			RETURN
+			    CALCULATE (
+			        SUM ( fact_inventory_snapshot[closing_qty] ),
+			        fact_inventory_snapshot[snapshot_date_key] = LatestSnapshotDate
+			    )
+		formatString: 0
+		lineageTag: 99c1399e-9f5e-4621-be46-585f614ee4c6
+
+		changedProperty = Name
+
+	measure 'Inventory Value' =
+			
+			VAR LatestSnapshotDate =
+			    MAX ( fact_inventory_snapshot[snapshot_date_key] )
+			RETURN
+			    CALCULATE (
+			        SUM ( fact_inventory_snapshot[inventory_value] ),
+			        fact_inventory_snapshot[snapshot_date_key] = LatestSnapshotDate
+			    )
+		lineageTag: eeef83e4-170e-4df9-a3ad-3f80fa62ff49
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stockout Rate %' =
+			
+			DIVIDE (
+			    CALCULATE (
+			        COUNTROWS ( fact_inventory_snapshot ),
+			        fact_inventory_snapshot[is_stockout] = TRUE ()
+			    ),
+			    COUNTROWS ( fact_inventory_snapshot )
+			)
+		lineageTag: 171b4d09-1e38-480e-9cf9-ecc8c20c4360
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column snapshot_date_key
 		dataType: int64
 		formatString: 0
