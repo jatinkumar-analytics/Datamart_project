@@ -1,0 +1,58 @@
+table dim_payment
+	lineageTag: 6a42a623-20cf-474d-8cb0-b1acfa853ea3
+	sourceLineageTag: [conformed].[dim_payment]
+
+	column payment_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c6f00e6c-4529-4f47-a1bd-8a715bf55872
+		sourceLineageTag: payment_key
+		summarizeBy: none
+		sourceColumn: payment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: def613b0-af4f-423b-90c3-8ad74054ccc2
+		sourceLineageTag: payment_method
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_type
+		dataType: string
+		lineageTag: d5008195-2e50-41ca-8304-6f4adba4e2a1
+		sourceLineageTag: card_type
+		summarizeBy: none
+		sourceColumn: card_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_channel
+		dataType: string
+		lineageTag: c70d87eb-7863-494b-8147-29467bdc5560
+		sourceLineageTag: sales_channel
+		summarizeBy: none
+		sourceColumn: sales_channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_cod
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dade6411-d7cf-4b64-862e-5cbfbbd4a8a6
+		sourceLineageTag: is_cod
+		summarizeBy: none
+		sourceColumn: is_cod
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_payment = entity
+		mode: directLake
+		source
+			entityName: dim_payment
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

@@ -1,0 +1,57 @@
+table dim_return_reason
+	lineageTag: 3519457b-4e79-48b2-8bff-c9e46077cd53
+	sourceLineageTag: [conformed].[dim_return_reason]
+
+	column return_reason_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f785df63-0de7-4a31-9552-e7ebed8b9db1
+		sourceLineageTag: return_reason_key
+		summarizeBy: none
+		sourceColumn: return_reason_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column return_reason_id
+		dataType: string
+		lineageTag: 713aae30-a6b3-4aac-be52-10cec915e94a
+		sourceLineageTag: return_reason_id
+		summarizeBy: none
+		sourceColumn: return_reason_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 6bfc4c93-1713-4bf1-b61a-0ca783aad62c
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: f15cab3c-7408-46a0-9461-8b8dc0962807
+		sourceLineageTag: description
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_controllable
+		dataType: string
+		lineageTag: c643cb9b-285e-4ad3-8b02-8f32c9c66a73
+		sourceLineageTag: is_controllable
+		summarizeBy: none
+		sourceColumn: is_controllable
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_return_reason = entity
+		mode: directLake
+		source
+			entityName: dim_return_reason
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

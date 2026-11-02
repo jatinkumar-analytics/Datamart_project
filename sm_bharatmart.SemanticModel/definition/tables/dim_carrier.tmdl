@@ -1,0 +1,57 @@
+table dim_carrier
+	lineageTag: 64447950-69fb-44b8-86bb-e765f9314aad
+	sourceLineageTag: [conformed].[dim_carrier]
+
+	column carrier_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a833d23-ee0f-4782-abbb-d299e869ab14
+		sourceLineageTag: carrier_key
+		summarizeBy: none
+		sourceColumn: carrier_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_id
+		dataType: string
+		lineageTag: b40d4af9-e4ac-4108-947f-68834a44373d
+		sourceLineageTag: carrier_id
+		summarizeBy: none
+		sourceColumn: carrier_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_name
+		dataType: string
+		lineageTag: b2c24888-0054-46f7-bc9a-22a7d47e3143
+		sourceLineageTag: carrier_name
+		summarizeBy: none
+		sourceColumn: carrier_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_level
+		dataType: string
+		lineageTag: e47d1e3b-850e-4609-b2fe-017f6e47d644
+		sourceLineageTag: service_level
+		summarizeBy: none
+		sourceColumn: service_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column transport_mode
+		dataType: string
+		lineageTag: ba36d054-8177-4f0b-8de7-c4610114ed56
+		sourceLineageTag: transport_mode
+		summarizeBy: none
+		sourceColumn: transport_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_carrier = entity
+		mode: directLake
+		source
+			entityName: dim_carrier
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

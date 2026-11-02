@@ -1,0 +1,67 @@
+table bridge_product_supplier
+	lineageTag: c65c2242-a8e1-4a73-9b31-2ccf3be9fac4
+	sourceLineageTag: [supply].[bridge_product_supplier]
+
+	measure 'Total Revenue' = SUM ( fact_sales[net_amount] )
+		lineageTag: 70f2eeb6-8067-4510-8ab7-ba0535c95ef0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Refund' = SUM ( fact_returns[refund_amount] )
+		lineageTag: 38e487cc-6f5c-4198-8bdf-a39b473eafe8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c2770c3-2b4a-49eb-bdb6-f775d1331544
+		sourceLineageTag: product_key
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 137a273e-ede2-4637-9848-adfa52054374
+		sourceLineageTag: supplier_key
+		summarizeBy: none
+		sourceColumn: supplier_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_primary
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c072fae1-bcb7-467b-85cd-37e2fda0a2e7
+		sourceLineageTag: is_primary
+		summarizeBy: none
+		sourceColumn: is_primary
+
+		annotation SummarizationSetBy = Automatic
+
+	column allocation_pct
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f4089eeb-5f2a-496b-bc28-78da56c3c27c
+		sourceLineageTag: allocation_pct
+		summarizeBy: sum
+		sourceColumn: allocation_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en"}
+
+	partition bridge_product_supplier = entity
+		mode: directLake
+		source
+			entityName: bridge_product_supplier
+			schemaName: supply
+			expressionSource: 'DirectLake - wh_bharatmart'
+

@@ -1,0 +1,66 @@
+table dim_geography
+	lineageTag: ad47ad5d-7c88-49b3-85c4-0b2ad9b17594
+	sourceLineageTag: [conformed].[dim_geography]
+
+	column geography_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 12556d1e-8476-4b3c-b4ae-d4e096c283dd
+		sourceLineageTag: geography_key
+		summarizeBy: none
+		sourceColumn: geography_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column geography_id
+		dataType: string
+		lineageTag: d8246d13-5a85-4540-a8df-f536c55302df
+		sourceLineageTag: geography_id
+		summarizeBy: none
+		sourceColumn: geography_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 2a340119-3170-40eb-992f-b9b6dbdf71bc
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: b65a976b-ec76-43f8-acfa-ce80c90e5f79
+		sourceLineageTag: state_name
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 82564e30-8607-41a0-a5a3-713597531c00
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		lineageTag: 8367b1df-adbb-4fa2-9dae-0f80dee6ff28
+		sourceLineageTag: zone
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_geography = entity
+		mode: directLake
+		source
+			entityName: dim_geography
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

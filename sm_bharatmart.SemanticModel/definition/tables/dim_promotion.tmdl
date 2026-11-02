@@ -1,0 +1,107 @@
+table dim_promotion
+	lineageTag: d60f8c74-78ed-4667-921e-cdfa795cfd12
+	sourceLineageTag: [conformed].[dim_promotion]
+
+	column promotion_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d7238ff2-daae-47cd-bb1c-f5c13b475d65
+		sourceLineageTag: promotion_key
+		summarizeBy: none
+		sourceColumn: promotion_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column promotion_id
+		dataType: string
+		lineageTag: fcc35454-c490-44be-89e5-7c6f2e11c7d7
+		sourceLineageTag: promotion_id
+		summarizeBy: none
+		sourceColumn: promotion_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_name
+		dataType: string
+		lineageTag: d34732df-72cd-4668-8b3f-07a2ef9f1182
+		sourceLineageTag: campaign_name
+		summarizeBy: none
+		sourceColumn: campaign_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column promotion_type
+		dataType: string
+		lineageTag: 3213cee7-cfac-4e94-9ff5-7db1a8ce1225
+		sourceLineageTag: promotion_type
+		summarizeBy: none
+		sourceColumn: promotion_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_type
+		dataType: string
+		lineageTag: b8093a80-c32b-40f9-a19d-64f163db382a
+		sourceLineageTag: discount_type
+		summarizeBy: none
+		sourceColumn: discount_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_value
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d6c3bd34-7b83-4e68-be77-149ae1cafe47
+		sourceLineageTag: discount_value
+		summarizeBy: none
+		sourceColumn: discount_value
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en"}
+
+	column start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 257aca63-3e7c-4443-8973-1c25446b2321
+		sourceLineageTag: start_date
+		summarizeBy: none
+		sourceColumn: start_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f6219848-0f46-4517-b864-13d3d529ccd0
+		sourceLineageTag: end_date
+		summarizeBy: none
+		sourceColumn: end_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_promotion = entity
+		mode: directLake
+		source
+			entityName: dim_promotion
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+
+	changedProperty = IsHidden
+

@@ -1,0 +1,86 @@
+[
+  {
+    "name": "silver_workforce_events",
+    "path": "/Tables/Silver",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Bronze/bronze_workforce_events",
+        "itemId": "00000000-0000-0000-0000-000000000000",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  },
+  {
+    "name": "silver_shipment_lines",
+    "path": "/Tables/Silver",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Bronze/bronze_shipment_lines",
+        "itemId": "00000000-0000-0000-0000-000000000000",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  },
+  {
+    "name": "silver_promotion_coverage",
+    "path": "/Tables/Silver",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Bronze/bronze_promotion_coverage",
+        "itemId": "00000000-0000-0000-0000-000000000000",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  },
+  {
+    "name": "silver_procurement_lines",
+    "path": "/Tables/Silver",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Bronze/bronze_procurement_lines",
+        "itemId": "00000000-0000-0000-0000-000000000000",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  },
+  {
+    "name": "silver_order_lifecycle",
+    "path": "/Tables/Silver",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Bronze/bronze_order_lifecycle",
+        "itemId": "00000000-0000-0000-0000-000000000000",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  },
+  {
+    "name": "silver_inventory_daily",
+    "path": "/Tables/Silver",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Bronze/bronze_inventory_daily",
+        "itemId": "00000000-0000-0000-0000-000000000000",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  },
+  {
+    "name": "silver_commerce_events",
+    "path": "/Tables/Silver",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/Bronze/bronze_commerce_events",
+        "itemId": "00000000-0000-0000-0000-000000000000",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  }
+]

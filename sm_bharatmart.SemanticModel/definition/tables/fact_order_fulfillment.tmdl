@@ -1,0 +1,171 @@
+table fact_order_fulfillment
+	lineageTag: dc03a4da-df10-4fdc-a225-7a939d6a1c51
+	sourceLineageTag: [operations].[fact_order_fulfillment]
+
+	column order_key
+		dataType: int64
+		formatString: 0
+		lineageTag: b4e6be6e-a059-40e9-a7aa-c018470c069e
+		sourceLineageTag: order_key
+		summarizeBy: none
+		sourceColumn: order_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_number
+		dataType: string
+		lineageTag: a03ac5e3-1294-4f70-87eb-42e91bbde510
+		sourceLineageTag: order_number
+		summarizeBy: none
+		sourceColumn: order_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f143c94-086a-4f90-abe7-cb09f1631385
+		sourceLineageTag: order_date_key
+		summarizeBy: sum
+		sourceColumn: order_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ea0ad9b-bef6-47a6-9667-68993161c8d4
+		sourceLineageTag: payment_date_key
+		summarizeBy: sum
+		sourceColumn: payment_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column packed_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 90fe47fd-d9f7-4bf5-b951-cc888634daf0
+		sourceLineageTag: packed_date_key
+		summarizeBy: sum
+		sourceColumn: packed_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipped_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a55d8f3-ffa1-403f-a697-f733162bb1f6
+		sourceLineageTag: shipped_date_key
+		summarizeBy: sum
+		sourceColumn: shipped_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: baf24205-68ec-4750-bbc7-409aee5187d0
+		sourceLineageTag: delivered_date_key
+		summarizeBy: sum
+		sourceColumn: delivered_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancelled_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c31b073c-639b-4e13-b687-153e039ce907
+		sourceLineageTag: cancelled_date_key
+		summarizeBy: sum
+		sourceColumn: cancelled_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: af4db997-56d3-44bd-a838-71f0ec9aa27b
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_key
+		dataType: int64
+		formatString: 0
+		lineageTag: cd318eb5-1735-4147-a1d8-77b233553a28
+		sourceLineageTag: store_key
+		summarizeBy: none
+		sourceColumn: store_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2399c118-19c2-4ea9-b898-411ab11d8140
+		sourceLineageTag: warehouse_key
+		summarizeBy: none
+		sourceColumn: warehouse_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ed5af9a-110c-45b1-a834-5b330760e96f
+		sourceLineageTag: carrier_key
+		summarizeBy: none
+		sourceColumn: carrier_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column geography_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 92b03d5e-33ba-4951-b6b0-01e770fba450
+		sourceLineageTag: geography_key
+		summarizeBy: none
+		sourceColumn: geography_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_cancelled
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1c381e82-e664-4fc7-8dc6-02677d592b10
+		sourceLineageTag: is_cancelled
+		summarizeBy: none
+		sourceColumn: is_cancelled
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_to_ship
+		dataType: int64
+		formatString: 0
+		lineageTag: 97895d9c-2343-4424-b62d-c48086c562a3
+		sourceLineageTag: days_to_ship
+		summarizeBy: sum
+		sourceColumn: days_to_ship
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_total
+		dataType: double
+		lineageTag: 0f55a41e-6813-4565-9c0d-0817ae999a33
+		sourceLineageTag: order_total
+		summarizeBy: sum
+		sourceColumn: order_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_order_fulfillment = entity
+		mode: directLake
+		source
+			entityName: fact_order_fulfillment
+			schemaName: operations
+			expressionSource: 'DirectLake - wh_bharatmart'
+

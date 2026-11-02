@@ -1,0 +1,76 @@
+table dim_warehouse
+	lineageTag: 8de9d0bc-f91c-4080-bf39-728310bf2507
+	sourceLineageTag: [conformed].[dim_warehouse]
+
+	column warehouse_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c480bc1-552a-4624-b5a3-3b490012bab9
+		sourceLineageTag: warehouse_key
+		summarizeBy: none
+		sourceColumn: warehouse_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_id
+		dataType: string
+		lineageTag: ca6dcee1-650d-46a4-be3b-22253c7c761d
+		sourceLineageTag: warehouse_id
+		summarizeBy: none
+		sourceColumn: warehouse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_name
+		dataType: string
+		lineageTag: 8155ad47-9a25-4b05-8953-a2732a0dbbfd
+		sourceLineageTag: warehouse_name
+		summarizeBy: none
+		sourceColumn: warehouse_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_type
+		dataType: string
+		lineageTag: 160f2c66-3146-43f0-a7cd-66da5f52a12a
+		sourceLineageTag: warehouse_type
+		summarizeBy: none
+		sourceColumn: warehouse_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: abab7dec-42d4-4abb-8dd0-3ec781d14b7e
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: b5c47b05-a519-4ee7-8470-001bdac56f75
+		sourceLineageTag: state_name
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_units
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d637cb7-8ba2-47a1-b519-8c696fd5dff0
+		sourceLineageTag: capacity_units
+		summarizeBy: sum
+		sourceColumn: capacity_units
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_warehouse = entity
+		mode: directLake
+		source
+			entityName: dim_warehouse
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

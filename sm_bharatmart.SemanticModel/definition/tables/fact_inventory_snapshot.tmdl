@@ -1,0 +1,143 @@
+table fact_inventory_snapshot
+	lineageTag: f92baaf6-2ab5-41fd-8dce-0b32e0d6c4ee
+	sourceLineageTag: [operations].[fact_inventory_snapshot]
+
+	column snapshot_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c34d0ddb-b470-4443-b4d6-1215bc1b6fb7
+		sourceLineageTag: snapshot_date_key
+		summarizeBy: none
+		sourceColumn: snapshot_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 48ff8e58-6e71-4fa5-a03f-283140ca2836
+		sourceLineageTag: product_key
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 47d29231-e221-400e-8a35-5c2f77977603
+		sourceLineageTag: warehouse_key
+		summarizeBy: none
+		sourceColumn: warehouse_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column opening_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 53533009-9516-4470-a7e4-0dd1ab8a25b9
+		sourceLineageTag: opening_qty
+		summarizeBy: sum
+		sourceColumn: opening_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column received_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 78ecb905-528c-447c-9e99-4abe0549fb8a
+		sourceLineageTag: received_qty
+		summarizeBy: sum
+		sourceColumn: received_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column sold_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: b6899a45-de8e-4561-98f6-6a44a51e80e9
+		sourceLineageTag: sold_qty
+		summarizeBy: sum
+		sourceColumn: sold_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column returned_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 46bb026f-5f75-4897-b522-3542cb1d3128
+		sourceLineageTag: returned_qty
+		summarizeBy: sum
+		sourceColumn: returned_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column damaged_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 9513e886-cbe2-44c3-82d8-d4eaf240a288
+		sourceLineageTag: damaged_qty
+		summarizeBy: sum
+		sourceColumn: damaged_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column closing_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: d0d79ab4-ba43-4990-a166-a5b164c56be5
+		sourceLineageTag: closing_qty
+		summarizeBy: sum
+		sourceColumn: closing_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column reorder_level
+		dataType: int64
+		formatString: 0
+		lineageTag: 9387019e-4ecf-4c3b-9ab2-7cfbc8061273
+		sourceLineageTag: reorder_level
+		summarizeBy: sum
+		sourceColumn: reorder_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_cost
+		dataType: double
+		lineageTag: 1f0170c1-c62b-4f24-995c-b70cd527941b
+		sourceLineageTag: unit_cost
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column inventory_value
+		dataType: double
+		lineageTag: f4f2fc76-dad7-4b8c-9983-7f136c582ee5
+		sourceLineageTag: inventory_value
+		summarizeBy: sum
+		sourceColumn: inventory_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_stockout
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 07b0719d-9983-4ba3-aec4-88a4b2ebb393
+		sourceLineageTag: is_stockout
+		summarizeBy: none
+		sourceColumn: is_stockout
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_inventory_snapshot = entity
+		mode: directLake
+		source
+			entityName: fact_inventory_snapshot
+			schemaName: operations
+			expressionSource: 'DirectLake - wh_bharatmart'
+

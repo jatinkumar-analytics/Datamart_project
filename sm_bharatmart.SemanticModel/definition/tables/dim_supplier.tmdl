@@ -1,0 +1,87 @@
+table dim_supplier
+	lineageTag: 22014a8c-5aef-45c4-b91a-a372e6ab8ffd
+	sourceLineageTag: [conformed].[dim_supplier]
+
+	column supplier_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 07a3be34-fde2-4596-bff1-9c0e1fb8f1be
+		sourceLineageTag: supplier_key
+		summarizeBy: none
+		sourceColumn: supplier_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_id
+		dataType: string
+		lineageTag: 7afb7375-caa3-43f4-b83c-f53bbc165bc9
+		sourceLineageTag: supplier_id
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_name
+		dataType: string
+		lineageTag: 7a8c6f04-6b2d-4038-a2ca-8b1b5a6c380a
+		sourceLineageTag: supplier_name
+		summarizeBy: none
+		sourceColumn: supplier_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_type
+		dataType: string
+		lineageTag: c3fadbf4-507e-4a1f-bf4b-37192d528079
+		sourceLineageTag: supplier_type
+		summarizeBy: none
+		sourceColumn: supplier_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 1747913f-1eee-4ac3-b2c8-c9ed17854215
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: 493184e1-93cb-4e34-bbf1-e730bb67ff17
+		sourceLineageTag: state_name
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_rating
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: fb23fc4f-7c18-4aac-a35a-160e20264d08
+		sourceLineageTag: supplier_rating
+		summarizeBy: sum
+		sourceColumn: supplier_rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en"}
+
+	column payment_terms
+		dataType: string
+		lineageTag: 9b2d7394-b3d5-4979-8870-56d2cc938f10
+		sourceLineageTag: payment_terms
+		summarizeBy: none
+		sourceColumn: payment_terms
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_supplier = entity
+		mode: directLake
+		source
+			entityName: dim_supplier
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

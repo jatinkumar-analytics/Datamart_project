@@ -1,0 +1,207 @@
+table fact_sales
+	lineageTag: a9d45b24-9edc-40d2-8ba5-d5aba117e0a7
+	sourceLineageTag: [sales].[fact_sales]
+
+	column sales_key
+		dataType: int64
+		formatString: 0
+		lineageTag: e2eb8ef8-4280-4ce7-ae1f-5e5df1bfdceb
+		sourceLineageTag: sales_key
+		summarizeBy: sum
+		sourceColumn: sales_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_number
+		dataType: string
+		lineageTag: 5f208696-5a4d-438f-8be4-475df5fb0a26
+		sourceLineageTag: order_number
+		summarizeBy: none
+		sourceColumn: order_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c03f1d2-1d40-4ca2-b676-f8894e56793d
+		sourceLineageTag: order_line_no
+		summarizeBy: sum
+		sourceColumn: order_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a688bc5-1337-48bf-a7fc-55f0bc565659
+		sourceLineageTag: order_date_key
+		summarizeBy: none
+		sourceColumn: order_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: b3eac132-8b54-4cc7-a7eb-3cedd2f52bad
+		sourceLineageTag: ship_date_key
+		summarizeBy: sum
+		sourceColumn: ship_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 72dbfa94-3434-4a77-924d-ebf849e24abe
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8cdaa5a7-aa25-41b6-b0c8-cd4836dd3bce
+		sourceLineageTag: product_key
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 80cff246-f306-449b-9e5d-68762aa31b8e
+		sourceLineageTag: store_key
+		summarizeBy: none
+		sourceColumn: store_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d37d834f-c822-4fc0-b599-ac5a07d08317
+		sourceLineageTag: employee_key
+		summarizeBy: none
+		sourceColumn: employee_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column geography_key
+		dataType: int64
+		formatString: 0
+		lineageTag: afe83fb4-e5c9-4243-bec0-d0b81f856713
+		sourceLineageTag: geography_key
+		summarizeBy: none
+		sourceColumn: geography_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 37734115-e509-42ef-bf4e-6af49b512310
+		sourceLineageTag: payment_key
+		summarizeBy: none
+		sourceColumn: payment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 3129b47b-0140-4635-a41e-53f1291cafcd
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: 2fdcc4b5-cd65-44c6-a0f4-865f3731b3d9
+		sourceLineageTag: unit_price
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_amount
+		dataType: double
+		lineageTag: c879b13e-a722-4586-8cb8-eb1e4af8b7a6
+		sourceLineageTag: gross_amount
+		summarizeBy: sum
+		sourceColumn: gross_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_amount
+		dataType: double
+		lineageTag: 9dd415a4-c553-4825-b0b1-74a7aeb8cd84
+		sourceLineageTag: discount_amount
+		summarizeBy: sum
+		sourceColumn: discount_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_amount
+		dataType: double
+		lineageTag: 0e0a7bba-a014-4787-a4fb-44c08810148b
+		sourceLineageTag: net_amount
+		summarizeBy: sum
+		sourceColumn: net_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_amount
+		dataType: double
+		lineageTag: 80fc4873-5bab-43b2-a238-d91b943566ed
+		sourceLineageTag: cost_amount
+		summarizeBy: sum
+		sourceColumn: cost_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tax_amount
+		dataType: double
+		lineageTag: ac18f702-f071-414b-b372-0a4381fb9871
+		sourceLineageTag: tax_amount
+		summarizeBy: sum
+		sourceColumn: tax_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column margin
+		dataType: double
+		lineageTag: 075dcee0-887b-43ee-91f8-5b0f9be3fe87
+		sourceLineageTag: margin
+		summarizeBy: sum
+		sourceColumn: margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_sales = entity
+		mode: directLake
+		source
+			entityName: fact_sales
+			schemaName: sales
+			expressionSource: 'DirectLake - wh_bharatmart'
+

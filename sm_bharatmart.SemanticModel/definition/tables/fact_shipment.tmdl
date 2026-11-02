@@ -1,0 +1,162 @@
+table fact_shipment
+	lineageTag: ec8bf666-2ab1-41fc-8760-6ba7085cf8bd
+	sourceLineageTag: [supply].[fact_shipment]
+
+	column shipment_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c099d04e-88a6-4842-aa49-c34bc6b8868b
+		sourceLineageTag: shipment_key
+		summarizeBy: sum
+		sourceColumn: shipment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipment_number
+		dataType: string
+		lineageTag: f2c0cd37-0f22-4877-8bdf-a3d4e8819932
+		sourceLineageTag: shipment_number
+		summarizeBy: none
+		sourceColumn: shipment_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipment_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: f9219a74-cbd1-4c3f-961b-4614eba2cc2b
+		sourceLineageTag: shipment_line_no
+		summarizeBy: sum
+		sourceColumn: shipment_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 61c164a3-7b6c-4e20-813d-279530162c5a
+		sourceLineageTag: ship_date_key
+		summarizeBy: none
+		sourceColumn: ship_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column promised_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e0ade3d-9b25-413b-a8c2-930a301721f6
+		sourceLineageTag: promised_date_key
+		summarizeBy: sum
+		sourceColumn: promised_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: bf59bfd4-4c42-4054-ab21-d76ec5c37528
+		sourceLineageTag: delivery_date_key
+		summarizeBy: sum
+		sourceColumn: delivery_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3349eb32-6f23-4bc5-814f-8b9e282c47c8
+		sourceLineageTag: product_key
+		summarizeBy: sum
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9548adfe-032b-4ac2-a259-c5fac3c8bc7f
+		sourceLineageTag: supplier_key
+		summarizeBy: sum
+		sourceColumn: supplier_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f8615df-8aa9-4b12-84b4-573820601c79
+		sourceLineageTag: warehouse_key
+		summarizeBy: sum
+		sourceColumn: warehouse_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e346228-2316-4778-92b6-52c8fc21ec82
+		sourceLineageTag: store_key
+		summarizeBy: sum
+		sourceColumn: store_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fd8d45b-f1a9-414c-bdb3-3f366d8ef112
+		sourceLineageTag: carrier_key
+		summarizeBy: sum
+		sourceColumn: carrier_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column geography_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4eb0ffa1-c180-4b62-949b-d3d591faeadd
+		sourceLineageTag: geography_key
+		summarizeBy: sum
+		sourceColumn: geography_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipped_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 86938758-c676-4809-a2b1-c6c2093b3e81
+		sourceLineageTag: shipped_quantity
+		summarizeBy: sum
+		sourceColumn: shipped_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipment_weight
+		dataType: double
+		lineageTag: 6c447c2d-4f9a-4e1f-a61c-4d5e46850452
+		sourceLineageTag: shipment_weight
+		summarizeBy: sum
+		sourceColumn: shipment_weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column shipping_cost
+		dataType: double
+		lineageTag: 9658818d-be9f-4b99-9c77-dd165b71eb90
+		sourceLineageTag: shipping_cost
+		summarizeBy: sum
+		sourceColumn: shipping_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_shipment = entity
+		mode: directLake
+		source
+			entityName: fact_shipment
+			schemaName: supply
+			expressionSource: 'DirectLake - wh_bharatmart'
+

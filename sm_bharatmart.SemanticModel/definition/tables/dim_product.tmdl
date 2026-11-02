@@ -1,0 +1,127 @@
+table dim_product
+	lineageTag: 060504b9-afce-45dc-9ad0-2dc1af8357f2
+	sourceLineageTag: [conformed].[dim_product]
+
+	column product_key
+		dataType: int64
+		formatString: 0
+		lineageTag: e4d8715c-4458-45b8-b940-0e40913a57fd
+		sourceLineageTag: product_key
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: bbf5b38e-de6a-4dd4-8b37-1f193254cfc8
+		sourceLineageTag: product_id
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 3c342659-8f7d-4fe9-b49e-8d9c82ce149e
+		sourceLineageTag: product_name
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: 062452da-1fe5-4855-84e2-a8e5bbd4a4e0
+		sourceLineageTag: brand
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: 63ba55da-1a3d-41b8-8183-b86e96513a8c
+		sourceLineageTag: department_name
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: a3c57c39-b5ec-4c12-963d-507381df0875
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column subcategory
+		dataType: string
+		lineageTag: ed6d9420-cac4-4b9a-a369-b563babbe871
+		sourceLineageTag: subcategory
+		summarizeBy: none
+		sourceColumn: subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column list_price
+		dataType: double
+		lineageTag: 36e99455-6105-4a41-8a52-dfae70bc962f
+		sourceLineageTag: list_price
+		summarizeBy: sum
+		sourceColumn: list_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column standard_cost
+		dataType: double
+		lineageTag: bfdba2ac-31cb-4346-97f3-b6c0b00396a9
+		sourceLineageTag: standard_cost
+		summarizeBy: sum
+		sourceColumn: standard_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 68d9aab6-9e43-4caf-8699-f95bdb67e640
+		sourceLineageTag: start_date
+		summarizeBy: none
+		sourceColumn: start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b726b6a4-7cb2-4e30-81ae-d4050d27c6cf
+		sourceLineageTag: end_date
+		summarizeBy: none
+		sourceColumn: end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d88dcecb-d075-4303-849e-b6c857d4dfe7
+		sourceLineageTag: is_current
+		summarizeBy: none
+		sourceColumn: is_current
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = entity
+		mode: directLake
+		source
+			entityName: dim_product
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

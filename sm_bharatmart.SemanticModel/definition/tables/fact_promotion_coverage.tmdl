@@ -1,0 +1,64 @@
+table fact_promotion_coverage
+	lineageTag: 2aee7a59-20a8-474f-984c-49aa047c631b
+	sourceLineageTag: [operations].[fact_promotion_coverage]
+
+	column coverage_date_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: cedc5302-012b-4fd5-abfa-169e00253c40
+		sourceLineageTag: coverage_date_key
+		summarizeBy: none
+		sourceColumn: coverage_date_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column promotion_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 40d71cd1-1427-441e-b2c7-20ca36603d14
+		sourceLineageTag: promotion_key
+		summarizeBy: none
+		sourceColumn: promotion_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_key
+		dataType: int64
+		formatString: 0
+		lineageTag: b9d676ce-933a-40cd-8564-16ab769503e3
+		sourceLineageTag: product_key
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d0e26cc7-53c9-416a-a098-3fbd729461b7
+		sourceLineageTag: store_key
+		summarizeBy: none
+		sourceColumn: store_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_eligible
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fce648f8-c694-4ee4-84b7-537864a89870
+		sourceLineageTag: is_eligible
+		summarizeBy: none
+		sourceColumn: is_eligible
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_promotion_coverage = entity
+		mode: directLake
+		source
+			entityName: fact_promotion_coverage
+			schemaName: operations
+			expressionSource: 'DirectLake - wh_bharatmart'
+

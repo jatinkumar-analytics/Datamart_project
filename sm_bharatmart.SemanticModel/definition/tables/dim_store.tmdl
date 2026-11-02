@@ -1,0 +1,85 @@
+table dim_store
+	lineageTag: a916deb8-ecbe-40ae-a4a2-f7a9f51d92bb
+	sourceLineageTag: [conformed].[dim_store]
+
+	column store_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bc9e875-762a-4adc-b31a-c15099300760
+		sourceLineageTag: store_key
+		summarizeBy: none
+		sourceColumn: store_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: string
+		lineageTag: adcbd3b5-014e-43cf-bfa0-5d8479a9cb57
+		sourceLineageTag: store_id
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_name
+		dataType: string
+		lineageTag: 645662ae-def3-441f-a8a9-a5897d3d24a0
+		sourceLineageTag: store_name
+		summarizeBy: none
+		sourceColumn: store_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_format
+		dataType: string
+		lineageTag: 60dc3b0c-a7a8-49bb-97ea-894d78158532
+		sourceLineageTag: store_format
+		summarizeBy: none
+		sourceColumn: store_format
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 31f9cb0a-e299-4abb-8b63-bacf8f6d0f06
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: 6b9d64d5-5fe6-4f67-abe7-fad0159d8ede
+		sourceLineageTag: state_name
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: bad25cbe-0077-4559-a3d1-ff64b102a656
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column open_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 95877234-6b04-4778-ad25-4145f31222c0
+		sourceLineageTag: open_date
+		summarizeBy: none
+		sourceColumn: open_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_store = entity
+		mode: directLake
+		source
+			entityName: dim_store
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

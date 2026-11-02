@@ -1,0 +1,163 @@
+table fact_purchase_orders
+	lineageTag: 92d39633-d9ff-468b-a867-65f4546b6430
+	sourceLineageTag: [supply].[fact_purchase_orders]
+
+	column po_key
+		dataType: int64
+		formatString: 0
+		lineageTag: bfb05529-61ee-4790-a3b0-4876dc37dbef
+		sourceLineageTag: po_key
+		summarizeBy: sum
+		sourceColumn: po_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_number
+		dataType: string
+		lineageTag: 27a7bf3d-528d-4005-bcc9-73f658c45d2c
+		sourceLineageTag: po_number
+		summarizeBy: none
+		sourceColumn: po_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: f523f441-19f4-4745-bade-90230134a794
+		sourceLineageTag: po_line_no
+		summarizeBy: sum
+		sourceColumn: po_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: dd04d42e-abc9-4d1b-9b9b-8f75b7cf8b26
+		sourceLineageTag: po_date_key
+		summarizeBy: none
+		sourceColumn: po_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c7507b1-70ab-42a9-845e-69cb3dbc1c39
+		sourceLineageTag: expected_date_key
+		summarizeBy: sum
+		sourceColumn: expected_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column received_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fd93e67-b23f-426f-b79d-4206103f114d
+		sourceLineageTag: received_date_key
+		summarizeBy: sum
+		sourceColumn: received_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8976cc57-0e34-4bc1-95f4-f5c00156f4d9
+		sourceLineageTag: product_key
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9eef3e2f-26fc-4c9e-be92-41ba221da563
+		sourceLineageTag: supplier_key
+		summarizeBy: none
+		sourceColumn: supplier_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column warehouse_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b5d6786-6f99-415f-a681-de97dfa812ca
+		sourceLineageTag: warehouse_key
+		summarizeBy: none
+		sourceColumn: warehouse_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_key
+		dataType: int64
+		formatString: 0
+		lineageTag: fbc7c81a-9971-4c4c-bf0f-ebbe211176af
+		sourceLineageTag: employee_key
+		summarizeBy: none
+		sourceColumn: employee_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordered_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 2df1dc1f-df82-49ab-ae04-f99a14499606
+		sourceLineageTag: ordered_quantity
+		summarizeBy: sum
+		sourceColumn: ordered_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column received_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 530c36bf-7db1-4f56-bfb5-a2f63a3d8d78
+		sourceLineageTag: received_quantity
+		summarizeBy: sum
+		sourceColumn: received_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_cost
+		dataType: double
+		lineageTag: a0faf29e-9bc4-4c80-b802-b6a0fedc3c92
+		sourceLineageTag: unit_cost
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ordered_amount
+		dataType: double
+		lineageTag: 08529d60-bf5a-4cbd-a0aa-b6786796e1ea
+		sourceLineageTag: ordered_amount
+		summarizeBy: sum
+		sourceColumn: ordered_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column po_amount
+		dataType: double
+		lineageTag: c1f1dca5-bdd7-48f9-85ac-21fbe50c415d
+		sourceLineageTag: po_amount
+		summarizeBy: sum
+		sourceColumn: po_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_purchase_orders = entity
+		mode: directLake
+		source
+			entityName: fact_purchase_orders
+			schemaName: supply
+			expressionSource: 'DirectLake - wh_bharatmart'
+

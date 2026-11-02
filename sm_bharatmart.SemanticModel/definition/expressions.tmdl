@@ -1,0 +1,11 @@
+expression 'DirectLake - wh_bharatmart' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/9ae8e6fc-f9f6-42e5-b749-a32dff96b91a/3bb30763-7c60-4f75-8c59-26f2a49a6f70", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: de8253d9-c3f5-4d5c-907e-435ab6b3ea78
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[workforce].[fact_attendance]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[workforce].[fact_payroll]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[conformed].[dim_department]"}},"objectType":"Table"}]
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "sm_bharatmart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "180e1bda-8fea-81c3-43b7-e5f22a2c784f"
+  }
+}

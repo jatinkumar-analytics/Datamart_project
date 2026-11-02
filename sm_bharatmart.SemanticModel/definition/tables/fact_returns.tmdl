@@ -1,0 +1,151 @@
+table fact_returns
+	lineageTag: c60ac0ab-f15f-4bc6-8bbf-465e6593de6f
+	sourceLineageTag: [sales].[fact_returns]
+
+	column return_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e8144da-b767-47ec-9ff7-f940a41901b7
+		sourceLineageTag: return_key
+		summarizeBy: sum
+		sourceColumn: return_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column return_number
+		dataType: string
+		lineageTag: 7293f409-51ff-4595-8653-9fc1b3ee188c
+		sourceLineageTag: return_number
+		summarizeBy: none
+		sourceColumn: return_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column return_line_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b31ddb5-6293-4623-b14c-81aaff7eb473
+		sourceLineageTag: return_line_no
+		summarizeBy: sum
+		sourceColumn: return_line_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column return_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 29340862-9d5f-4427-ae61-8f2cca129ecc
+		sourceLineageTag: return_date_key
+		summarizeBy: none
+		sourceColumn: return_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column original_order_number
+		dataType: string
+		lineageTag: 32d1904c-455c-4f4c-9e2a-129b63f21bae
+		sourceLineageTag: original_order_number
+		summarizeBy: none
+		sourceColumn: original_order_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ad7c9e3e-4141-4c9e-868e-b420713c11b0
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ab8015f-7134-4a4a-a70b-72650afc1b65
+		sourceLineageTag: product_key
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_key
+		dataType: int64
+		formatString: 0
+		lineageTag: e22f286e-3d00-4862-9d5c-6d98fd413448
+		sourceLineageTag: store_key
+		summarizeBy: none
+		sourceColumn: store_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c680b643-7ad8-44df-b2f1-d4f9e9ba5534
+		sourceLineageTag: employee_key
+		summarizeBy: none
+		sourceColumn: employee_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column geography_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c9aa955b-2400-4631-b577-50b89d92ff20
+		sourceLineageTag: geography_key
+		summarizeBy: none
+		sourceColumn: geography_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column return_reason_key
+		dataType: int64
+		formatString: 0
+		lineageTag: e709e88f-7fa1-4f4e-8f06-0b8da006020b
+		sourceLineageTag: return_reason_key
+		summarizeBy: none
+		sourceColumn: return_reason_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: fb492400-8fa2-4154-a222-ee4eea9936d1
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column refund_amount
+		dataType: double
+		lineageTag: e6262b21-8a02-4139-b1a4-140c6510dce7
+		sourceLineageTag: refund_amount
+		summarizeBy: sum
+		sourceColumn: refund_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column restocking_fee
+		dataType: double
+		lineageTag: c1c41679-7398-4615-9b81-6b1d71109cd4
+		sourceLineageTag: restocking_fee
+		summarizeBy: sum
+		sourceColumn: restocking_fee
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_returns = entity
+		mode: directLake
+		source
+			entityName: fact_returns
+			schemaName: sales
+			expressionSource: 'DirectLake - wh_bharatmart'
+

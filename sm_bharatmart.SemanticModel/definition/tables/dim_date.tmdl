@@ -1,0 +1,80 @@
+table dim_date
+	lineageTag: 987da32c-34d0-4149-af02-f681ed1ed415
+	sourceLineageTag: [conformed].[dim_date]
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f1dda58-1b20-4849-b6e4-002a33d5130e
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column full_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0463effb-8a1e-414b-a36c-fdf6d3fc44d5
+		sourceLineageTag: full_date
+		summarizeBy: none
+		sourceColumn: full_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 2379f3e5-f02a-41dd-aca5-49109ba40623
+		sourceLineageTag: day_number
+		summarizeBy: sum
+		sourceColumn: day_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b3522e8-37ae-4c77-b6de-04b8c8ba0dc6
+		sourceLineageTag: month_number
+		summarizeBy: sum
+		sourceColumn: month_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 514c13e6-fa6f-4065-a4e6-866eecf86621
+		sourceLineageTag: month_name
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 7280b21e-eb54-49ee-aac5-8468ec5eb413
+		sourceLineageTag: quarter_no
+		summarizeBy: sum
+		sourceColumn: quarter_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_number
+		dataType: int64
+		formatString: 0
+		lineageTag: fee2f020-c4e7-47b7-b53f-47bd70c99408
+		sourceLineageTag: year_number
+		summarizeBy: sum
+		sourceColumn: year_number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+

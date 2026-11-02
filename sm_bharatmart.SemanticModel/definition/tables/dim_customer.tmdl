@@ -1,0 +1,105 @@
+table dim_customer
+	lineageTag: 36b1e864-c4f3-4052-a75c-ceb49200c85c
+	sourceLineageTag: [conformed].[dim_customer]
+
+	column customer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: fe69df2e-fe99-497e-adeb-c67b27eb4dda
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 0540b602-6112-4485-ba5b-3706bb304b08
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: 03e8777d-945a-4b5e-8a66-d240f8893aff
+		sourceLineageTag: customer_name
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: 8d8817a3-5de8-4b5d-b9b4-dec0cbf1204a
+		sourceLineageTag: segment
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 736e7895-de9b-4bf0-a390-c576011147e4
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: e5375046-970b-4594-93b6-235d37531fd8
+		sourceLineageTag: state_name
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: f80db519-5b0c-493a-b519-fee2d64ca97a
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2ddbfcef-c403-4940-a0d5-0e231a8b9721
+		sourceLineageTag: start_date
+		summarizeBy: none
+		sourceColumn: start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f245ae6a-790c-416e-9095-0dd2cf960bd2
+		sourceLineageTag: end_date
+		summarizeBy: none
+		sourceColumn: end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fe8a0fb0-bae9-472c-a805-6382c07581c3
+		sourceLineageTag: is_current
+		summarizeBy: none
+		sourceColumn: is_current
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customer = entity
+		mode: directLake
+		source
+			entityName: dim_customer
+			schemaName: conformed
+			expressionSource: 'DirectLake - wh_bharatmart'
+
