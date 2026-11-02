@@ -51,7 +51,7 @@ table fact_attendance
 		formatString: 0
 		lineageTag: 7f7e8dac-d000-49ce-a353-30b28dad7da4
 		sourceLineageTag: employee_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: employee_key
 
 		annotation SummarizationSetBy = Automatic
@@ -61,7 +61,7 @@ table fact_attendance
 		formatString: 0
 		lineageTag: 388f21c9-b490-4679-a249-69f7707ca571
 		sourceLineageTag: department_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: department_key
 
 		annotation SummarizationSetBy = Automatic
@@ -71,7 +71,7 @@ table fact_attendance
 		formatString: 0
 		lineageTag: ebb0acdd-950e-4f25-91aa-4a9541dcc3a2
 		sourceLineageTag: store_key
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: store_key
 
 		annotation SummarizationSetBy = Automatic

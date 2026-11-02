@@ -1,7 +1,3 @@
-relationship b54bcd75-9dae-0217-9525-3438c930952b
-	fromColumn: dim_date.date_key
-	toColumn: fact_payroll.pay_period_date_key
-
 relationship f7a797fc-bf5d-5057-874b-9ea238e4f707
 	fromColumn: fact_payroll.employee_key
 	toColumn: dim_employee.employee_key
@@ -19,17 +15,18 @@ relationship 61bf75ec-a869-dc86-44c5-9d05bf86ea0b
 	toColumn: dim_date.date_key
 
 relationship f6499c68-daf1-3293-7d0b-8ba20a8427d8
-	isActive: false
 	fromColumn: fact_attendance.employee_key
 	toColumn: dim_employee.employee_key
 
 relationship d86feafb-0577-7417-af24-fa3a4c3ced9c
-	isActive: false
 	fromColumn: fact_attendance.department_key
 	toColumn: dim_department.department_key
 
 relationship 80c4a80d-d67a-f3d5-7113-ee923d75f858
-	isActive: false
 	fromColumn: fact_attendance.store_key
 	toColumn: dim_store.store_key
+
+relationship c6c4030a-416e-329d-b175-7321ee1fe608
+	fromColumn: fact_payroll.pay_period_date_key
+	toColumn: dim_date.date_key
 
